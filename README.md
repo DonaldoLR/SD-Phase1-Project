@@ -10,19 +10,22 @@
 - Background changes color depending on switch
 
 # Roadmap 
-- Create file system 
+- Create file system (**Completed Tuesday**)
     - HTML
     - CSS
     - JavaScript 
-- Need library of jokes
+- Need library of jokes (**Completed Tuesday**)
     - Find the API
         - Try to find open APIs (No Keys, No OAuth)
         - View rates and limitations 
         - View documentation 
     - Play with the API
         - See the type of data you get 
-- Display the data on the DOM 
-    - Make sure it's legible 
+- Handle the Data
+    - Fetch the Data
+    - Create container using Data
+    - Display the data on the DOM 
+        - Make sure it's legible 
 - Add interactivity
     - Hiding the punchline until user clicks button 
     - Ability to search for different genres 
