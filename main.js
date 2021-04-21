@@ -32,8 +32,13 @@ function createJokeDiv(jokeObj){
     const createH2 = document.createElement('h2');
 
     createH1.innerText = setupLine;
-    createButton.innerText = `I don't know?`
+    createButton.innerText = `I don't know?`;
+    createButton.setAttribute('id', 'user-response-button');
+
+    //Creates the H2 with the puncline in it, the line is hidden 
     createH2.innerText = punchLine;
+    createH2.setAttribute('id', 'punch-line-h2')
+    createH2.classList.add('hidden');
 
     createDiv.appendChild(createH1);
     createDiv.appendChild(createButton);
@@ -43,10 +48,18 @@ function createJokeDiv(jokeObj){
 }   
 
 function displayJoke(div) {
-    return document.body.appendChild(div);
+    return document.getElementById('jokes-container').appendChild(div);
 }
 
+function displayPunchline(){
+    const userResponseButton = document.getElementById('user-response-button');
+    userResponseButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById('punch-line-h2').classList.remove('hidden');
+    })
+}
 fetchJoke()
     .then(createJokeDiv)
     .then(displayJoke)
+    .then(displayPunchline)
     
