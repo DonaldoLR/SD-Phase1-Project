@@ -53,9 +53,23 @@ function displayJoke(div) {
 
 function displayPunchline(){
     const userResponseButton = document.getElementById('user-response-button');
+
     userResponseButton.addEventListener('click', (e) => {
         e.preventDefault();
+
+        // Displays the Punchline 
+        document.getElementsByTagName('h1')[0].after(document.getElementById('punch-line-h2'));
         document.getElementById('punch-line-h2').classList.remove('hidden');
+
+        // Hides H1 (Setup Line)
+        document.getElementsByTagName('h1')[0].remove();
+
+        // Changes the text from "I don't know" => "Next Joke"
+        document.getElementsByTagName('button')[0].innerText = `Next joke...`;
+
+        
+
+
     })
 }
 fetchJoke()
