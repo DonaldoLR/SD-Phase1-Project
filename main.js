@@ -31,6 +31,7 @@ function createJokeDiv(jokeObj){
     const createButton = document.createElement('button');
     const createH2 = document.createElement('h2');
 
+    document.getElementById('joke-container').innerHTML = ``
     createH1.innerText = setupLine;
     createButton.innerText = `I don't know?`;
     createButton.setAttribute('id', 'user-response-button');
@@ -43,12 +44,12 @@ function createJokeDiv(jokeObj){
     createDiv.appendChild(createH1);
     createDiv.appendChild(createButton);
     createDiv.appendChild(createH2);
-
+   
     return createDiv; 
 }   
 
 function displayJoke(div) {
-    return document.getElementById('jokes-container').appendChild(div);
+    return document.getElementById('joke-container').appendChild(div);
 }
 
 function displayPunchline(){
@@ -57,23 +58,30 @@ function displayPunchline(){
     userResponseButton.addEventListener('click', (e) => {
         e.preventDefault();
 
-        // Displays the Punchline 
-        document.getElementsByTagName('h1')[0].after(document.getElementById('punch-line-h2'));
-        document.getElementById('punch-line-h2').classList.remove('hidden');
-
         // Hides H1 (Setup Line)
-        document.getElementsByTagName('h1')[0].remove();
+        document.getElementsByTagName('h1')[0].classList.add('hidden');
 
         // Changes the text from "I don't know" => "Next Joke"
         document.getElementsByTagName('button')[0].innerText = `Next joke...`;
 
-        
+        // Displays the Punchline 
+        document.getElementsByTagName('h1')[0].after(document.getElementById('punch-line-h2'));
+        document.getElementById('punch-line-h2').classList.remove('hidden');
 
-
+        nextJoke(userResponseButton)
     })
 }
-fetchJoke()
+function nextJoke(nextButton){
+    nextButton.addEventListener('click', (e) => {
+        runProgram()
+    })
+}
+function runProgram(){
+    fetchJoke()
     .then(createJokeDiv)
     .then(displayJoke)
     .then(displayPunchline)
+}
+
+runProgram()
     
