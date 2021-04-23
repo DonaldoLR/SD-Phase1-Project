@@ -27,14 +27,15 @@ function fetchJoke(inputSearchGenre = 'random'){
 // Step 2.2 creating a function that takes in an object containing the joke
 // Output: A div that can be used on the DOM
 function createJokeDiv(jokeObj){
-
     
-    const setupLine = jokeObj.setup;
-    const punchLine = jokeObj.punchline;
+    //Hide the form - causes issues when the user changes the genre and searches before the punchline/next joke button display
+    document.getElementById('select-genre-form').classList.add('hidden')
     
-    const createDiv = document.createElement('div');
-    const createSetupP = document.createElement('p');
-    const createPunchP = document.createElement('p');
+    const setupLine = jokeObj.setup, 
+            punchLine = jokeObj.punchline,
+            createDiv = document.createElement('div'), 
+            createSetupP = document.createElement('p'), 
+            createPunchP = document.createElement('p');
 
     
     createSetupP.innerText = setupLine;
@@ -44,8 +45,8 @@ function createJokeDiv(jokeObj){
     createPunchP.setAttribute('id', 'punch-line-p')
     createPunchP.classList.add('hidden');
 
-    createDiv.appendChild(createSetupP);
-    createDiv.appendChild(createPunchP);
+    createDiv.append(createSetupP,createPunchP);
+
    
     return createDiv; 
 }   
@@ -55,10 +56,12 @@ function displayJoke(div) {
 }
 function displayPunchline(){
     setTimeout(() => {
-        //Hide the form 
-        document.getElementById('select-genre-form').classList.add('hidden');
+        
         // Hides H1 (Setup Line)
-        document.getElementsByTagName('p')[0].classList.add('hidden');
+        // document.getElementsByTagName('p')[0].classList.add('hidden');
+        
+        // Removing the setup P tag as it will no longer be needed once punchline is displayed
+        document.getElementsByTagName('p')[0].remove()
         // Displays the Punchline 
         document.getElementsByTagName('p')[0].after(document.getElementById('punch-line-p'));
         document.getElementById('punch-line-p').classList.remove('hidden');
@@ -107,7 +110,7 @@ function clearJokeContainer() {
 }
 
 function runProgram(){
-    document.getElementById('submit-genre-button').addEventListener('click', (e) => {
+    document.getElementById('select-genre-form').addEventListener('submit', (e) => {
         e.preventDefault();
         clearJokeContainer();
         fetchJoke(document.getElementById('select-genre-input').value)
