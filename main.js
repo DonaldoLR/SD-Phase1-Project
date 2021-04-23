@@ -33,23 +33,23 @@ function createJokeDiv(jokeObj){
     const punchLine = jokeObj.punchline;
     
     const createDiv = document.createElement('div');
-    const createH1 = document.createElement('h1');
+    const createSetupP = document.createElement('p');
     const createButton = document.createElement('button');
-    const createH2 = document.createElement('h2');
+    const createPunchP = document.createElement('p');
 
     
-    createH1.innerText = setupLine;
+    createSetupP.innerText = setupLine;
     createButton.innerText = `I don't know?`;
     createButton.setAttribute('id', 'user-response-button');
 
     //Creates the H2 with the puncline in it, the line is hidden 
-    createH2.innerText = punchLine;
-    createH2.setAttribute('id', 'punch-line-h2')
-    createH2.classList.add('hidden');
+    createPunchP.innerText = punchLine;
+    createPunchP.setAttribute('id', 'punch-line-p')
+    createPunchP.classList.add('hidden');
 
-    createDiv.appendChild(createH1);
+    createDiv.appendChild(createSetupP);
     createDiv.appendChild(createButton);
-    createDiv.appendChild(createH2);
+    createDiv.appendChild(createPunchP);
    
     return createDiv; 
 }   
@@ -67,14 +67,14 @@ function displayPunchline(){
         //Hide the form 
         document.getElementById('select-genre-form').classList.add('hidden');
         // Hides H1 (Setup Line)
-        document.getElementsByTagName('h1')[0].classList.add('hidden');
+        document.getElementsByTagName('p')[0].classList.add('hidden');
 
         // Changes the text from "I don't know" => "Next Joke"
         document.getElementById('user-response-button').innerText = `Next joke...`;
 
         // Displays the Punchline 
-        document.getElementsByTagName('h1')[0].after(document.getElementById('punch-line-h2'));
-        document.getElementById('punch-line-h2').classList.remove('hidden');
+        document.getElementsByTagName('p')[0].after(document.getElementById('punch-line-p'));
+        document.getElementById('punch-line-p').classList.remove('hidden');
 
         nextJoke(userResponseButton)
     })

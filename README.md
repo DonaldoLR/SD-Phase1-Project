@@ -10,28 +10,42 @@
 - Background changes color depending on switch
 
 # Roadmap 
-- Create file system (**Completed Tuesday**)
-    - HTML
-    - CSS
-    - JavaScript 
-- Need library of jokes (**Completed Tuesday**)
-    - Find the API
-        - Try to find open APIs (No Keys, No OAuth)
-        - View rates and limitations 
-        - View documentation 
-    - Play with the API
-        - See the type of data you get 
-- Handle the Data
-    - Fetch the Data
-    - Create container using Data
-    - Display the data on the DOM 
-        - Make sure it's legible 
-- Add interactivity
-    - Hiding the punchline until user clicks button 
-    - Ability to search for different genres 
-    - Get a new joke
-
+- [ X ] Create file system
+    - [ X ] HTML
+    - [ X ] CSS
+    - [ X ] JavaScript 
+- [ X ] Need library of jokes
+    - [ X ] Find the API
+        - [ X ] Try to find open APIs (No Keys, No OAuth)
+        - [ X ] View rates and limitations 
+        - [ X ] View documentation 
+    - [ X ] Play with the API
+        - [ X ] See the type of data you get 
+- [ X ] Handle the Data
+    - [ X ] Fetch the Data
+    - [ X ] Create container using Data
+    - [ X ] Display the data on the DOM 
+        - [  ] Make sure it's legible 
+- [ X ] Add interactivity
+    - [ X ] Hiding the punchline until user clicks button 
+    - [ X ] Ability to search for different genres 
+    - [ X ] Get a new joke
+- [  ] Styling 
+    - [  ] Look at designs / insipirations 
+    - [  ] Implement the desgin choice 
+    - [  ] Get feedback from design
+    - [  ] 
 # Resources 
 - API (https://github.com/15Dkatz/official_joke_api)
-- 
+- https://dribbble.com/shots/15025442-Dark-UI-Elements
+    - Design inspiration / choice for form and buttons 
+- https://stackoverflow.com/questions/11497094/remove-border-from-buttons
+    - Having to remove default button styling 
+- https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow
+    - Glow / Shadow effect 
+- https://fonts.google.com/specimen/Roboto
+    - Getting a font for the website 
+
+
+
 
