@@ -47,7 +47,8 @@
     - Getting a font for the website 
 - https://validator.w3.org/#validate_by_input
     - Validate HTML
--
+- https://stackoverflow.com/questions/14507718/javascript-run-setinterval-only-once
+    - Run a function one time instead with a delay
 
 
 

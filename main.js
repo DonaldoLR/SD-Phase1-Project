@@ -38,7 +38,6 @@ function createJokeDiv(jokeObj){
 
     
     createSetupP.innerText = setupLine;
-    createButton.setAttribute('id', 'user-response-button');
 
     //Creates the H2 with the puncline in it, the line is hidden 
     createPunchP.innerText = punchLine;
