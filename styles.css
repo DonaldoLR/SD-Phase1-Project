@@ -83,11 +83,16 @@ button {
     border: none;
     color: white;
     padding: 10px 50px;
+    cursor: pointer;
 }
 
 #joke-container {
     height: 10vh;
     padding-top: 30vh;
+}
+#joke-container button {
+    margin-top: 50px;
+    font-size: 1.5em;
 }
 .hidden {
     display: none;

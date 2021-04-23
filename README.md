@@ -45,7 +45,9 @@
     - Glow / Shadow effect 
 - https://fonts.google.com/specimen/Roboto
     - Getting a font for the website 
-
+- https://validator.w3.org/#validate_by_input
+    - Validate HTML
+-
 
 
 

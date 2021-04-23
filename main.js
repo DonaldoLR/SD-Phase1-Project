@@ -19,9 +19,9 @@ function fetchJoke(inputSearchGenre = 'random'){
 // Step 2.1 How I was the joke to be structured in HTML
 /* 
 <div id="joke">
-    <h1>What is a centipedes's favorite Beatle song?</h1>
+    <p>What is a centipedes's favorite Beatle song?</h1>
     <button>I don't know, what?</button>
-    <h2>I want to hold your hand, hand, hand, hand...</h2>
+    <p>I want to hold your hand, hand, hand, hand...</h2>
 </div>
 */
 // Step 2.2 creating a function that takes in an object containing the joke
@@ -34,12 +34,10 @@ function createJokeDiv(jokeObj){
     
     const createDiv = document.createElement('div');
     const createSetupP = document.createElement('p');
-    const createButton = document.createElement('button');
     const createPunchP = document.createElement('p');
 
     
     createSetupP.innerText = setupLine;
-    createButton.innerText = `I don't know?`;
     createButton.setAttribute('id', 'user-response-button');
 
     //Creates the H2 with the puncline in it, the line is hidden 
@@ -48,7 +46,6 @@ function createJokeDiv(jokeObj){
     createPunchP.classList.add('hidden');
 
     createDiv.appendChild(createSetupP);
-    createDiv.appendChild(createButton);
     createDiv.appendChild(createPunchP);
    
     return createDiv; 
@@ -57,28 +54,47 @@ function createJokeDiv(jokeObj){
 function displayJoke(div) {
     return document.getElementById('joke-container').appendChild(div);
 }
-
 function displayPunchline(){
-    const userResponseButton = document.getElementById('user-response-button');
-
-    userResponseButton.addEventListener('click', (e) => {
-        e.preventDefault();
-
+    setTimeout(() => {
         //Hide the form 
         document.getElementById('select-genre-form').classList.add('hidden');
         // Hides H1 (Setup Line)
         document.getElementsByTagName('p')[0].classList.add('hidden');
-
-        // Changes the text from "I don't know" => "Next Joke"
-        document.getElementById('user-response-button').innerText = `Next joke...`;
-
         // Displays the Punchline 
         document.getElementsByTagName('p')[0].after(document.getElementById('punch-line-p'));
         document.getElementById('punch-line-p').classList.remove('hidden');
 
-        nextJoke(userResponseButton)
-    })
+        const createButton = document.createElement('button');
+        createButton.setAttribute('id', 'user-response-button');
+        createButton.innerText = 'Next Joke'
+        document.getElementsByTagName('div')[1].appendChild(createButton);
+
+        nextJoke(createButton)
+    }, 4000)
+    
 }
+// function displayPunchline(){
+//     const userResponseButton = document.getElementById('user-response-button');
+
+//     userResponseButton.addEventListener('click', (e) => {
+//         e.preventDefault();
+
+//         //Hide the form 
+//         document.getElementById('select-genre-form').classList.add('hidden');
+//         // Hides H1 (Setup Line)
+//         document.getElementsByTagName('p')[0].classList.add('hidden');
+
+//         // Changes the text from "I don't know" => "Next Joke"
+//         document.getElementById('user-response-button').innerText = `Next joke...`;
+
+//         // Displays the Punchline 
+//         document.getElementsByTagName('p')[0].after(document.getElementById('punch-line-p'));
+//         document.getElementById('punch-line-p').classList.remove('hidden');
+
+//         nextJoke(userResponseButton)
+//     })  
+// }
+
 function nextJoke(nextButton){
     nextButton.addEventListener('click', (e) => {
         e.preventDefault();
