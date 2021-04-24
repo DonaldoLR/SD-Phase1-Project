@@ -119,6 +119,14 @@ function runProgram(){
         .then(displayPunchline)
     })   
 }
-
+document.getElementById('light-mode-checkbox').addEventListener('change' , (e) => {
+    console.log(e)
+    if (e.target.checked === true){
+        document.body.classList.add('light-mode');
+    } else {
+        document.body.classList.remove('light-mode');
+    }
+    
+})
 runProgram()
     

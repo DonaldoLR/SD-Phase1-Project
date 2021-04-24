@@ -58,6 +58,7 @@ body {
     width: 100vw;
     height: 100vh;
 }
+
 form {
     padding-top: 5vh;
     height: 10vh;
@@ -100,4 +101,13 @@ button {
 }
 p {
     font-size: 3em;
+}
+
+.light-mode {
+    background-color: white;
+    color: black;
+}
+.light-mode select {
+    background-color: white;
+    color: black;
 }
