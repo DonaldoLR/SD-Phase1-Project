@@ -58,17 +58,15 @@ function displayPunchline(){
     setTimeout(() => {
         
         // Hides H1 (Setup Line)
-        // document.getElementsByTagName('p')[0].classList.add('hidden');
+        document.getElementsByTagName('p')[0].classList.add('hidden');
         
-        // Removing the setup P tag as it will no longer be needed once punchline is displayed
-        document.getElementsByTagName('p')[0].remove()
         // Displays the Punchline 
         document.getElementsByTagName('p')[0].after(document.getElementById('punch-line-p'));
         document.getElementById('punch-line-p').classList.remove('hidden');
 
         const createButton = document.createElement('button');
         createButton.setAttribute('id', 'user-response-button');
-        createButton.innerText = 'Next Joke'
+        createButton.innerText = 'Next Joke';
         document.getElementsByTagName('div')[1].appendChild(createButton);
 
         nextJoke(createButton)
